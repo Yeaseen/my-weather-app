@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-weather-app/static/css/main.27826fc9.chunk.css",
+    "main.js": "/my-weather-app/static/js/main.79d28e5f.chunk.js",
+    "main.js.map": "/my-weather-app/static/js/main.79d28e5f.chunk.js.map",
+    "runtime-main.js": "/my-weather-app/static/js/runtime-main.8b6e1a51.js",
+    "runtime-main.js.map": "/my-weather-app/static/js/runtime-main.8b6e1a51.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/my-weather-app/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.b68dda18.chunk.js": "/my-weather-app/static/js/2.b68dda18.chunk.js",
+    "static/js/2.b68dda18.chunk.js.map": "/my-weather-app/static/js/2.b68dda18.chunk.js.map",
+    "index.html": "/my-weather-app/index.html",
+    "precache-manifest.ede05170e513a7079f17b49949b044ba.js": "/my-weather-app/precache-manifest.ede05170e513a7079f17b49949b044ba.js",
+    "service-worker.js": "/my-weather-app/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/my-weather-app/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.27826fc9.chunk.css.map": "/my-weather-app/static/css/main.27826fc9.chunk.css.map",
+    "static/js/2.b68dda18.chunk.js.LICENSE.txt": "/my-weather-app/static/js/2.b68dda18.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b6e1a51.js",
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.b68dda18.chunk.js",
+    "static/css/main.27826fc9.chunk.css",
+    "static/js/main.79d28e5f.chunk.js"
+  ]
+}
