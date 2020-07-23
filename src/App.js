@@ -5,7 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 import Weather from './app_components/weather_design'
 import ForecastWeekly from './app_components/forecastweekly'
-const API_KEY = "9a9428d179fad71739964aa74141be9c";
+require('dotenv').config()
+
+const API_KEY = process.env.REACT_APP_OPENWEATHERMAPAPI
 
 
 const SinglePageComponent = () => {
@@ -56,39 +58,35 @@ const SinglePageComponent = () => {
 
     //console.log(city,country)
 
-    if (!(city=="" || country=="")) {
-      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    if (!(city == "" || country == "")) {
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=metric`);
       const data = await api_call.json()
-      //console.log(typeof (data.coord.lat))
+      console.log(data)
 
 
 
       setDataAvailable(true)
-      setCityName(`${data.name}, ${data.sys.country}`)
-      setTempC(data.main.temp)
-      setTempMinC(data.main.temp_min)
-      setTempMaxC(data.main.temp_max)
-      setDescription(data.weather[0].description)
-      setHum(data.main.humidity)
-      setFeels(data.main.feels_like)
+      setCityName(`${data.city.name}, ${data.city.country}`)
+      setTempC(data.list[0].main.temp)
+      setTempMinC(data.list[0].main.temp_min)
+      setTempMaxC(data.list[0].main.temp_max)
+      setDescription(data.list[0].weather[0].description)
+      setHum(data.list[0].main.humidity)
+      setFeels(data.list[0].main.feels_like)
 
-      let lat = data.coord.lat
-      let lon = data.coord.lon
+      // let nextDays = []
 
-      console.log(lat)
+      
+      // for (var i = 1; i < (data.list.length); i++) {
+      //   nextDays.push(data.list[i]);
+      // }
+      // console.log(nextDays)
 
-
-      //const one_api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&
-      //exclude=minutely&appid=${API_KEY}&units=metric`)
-
-      const one_api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=22.5&lon=91.5&
-    exclude=minutely&appid=${API_KEY}&units=metric`)
-
-      const one_data = await one_api_call.json()
-      setDaily(one_data.daily)
+      setDaily(data.list)
       setForecastWeekly(true)
+
     }
-    else{
+    else {
       Swal.fire({
         position: 'top-end',
         icon: 'error',
