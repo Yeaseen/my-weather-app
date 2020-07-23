@@ -23,6 +23,7 @@ const SinglePageComponent = () => {
   const [description, setDescription] = useState("")
   const [hum, setHum] = useState("")
   const [feels, setFeels] = useState("")
+  const [icon,setIcon] = useState("")
 
 
 
@@ -73,6 +74,8 @@ const SinglePageComponent = () => {
       setDescription(data.list[0].weather[0].description)
       setHum(data.list[0].main.humidity)
       setFeels(data.list[0].main.feels_like)
+      setIcon(data.list[0].weather[0].icon)
+
 
       // let nextDays = []
 
@@ -106,8 +109,11 @@ const SinglePageComponent = () => {
 
   return (
     <div className="App">
-      <h2>Hello From Client Side</h2>
-
+      <br></br>
+     
+      <h2 className="text-light">Please select a country as well as a region.</h2>
+      <br></br>
+      
       <CountryDropdown
         value={country}
         onChange={(val) => selectCountry(val)} />
@@ -117,9 +123,9 @@ const SinglePageComponent = () => {
         onChange={(val) => selectRegion(val)} />
       <br></br>
       <br></br>
-      <br></br>
-
-      <button onClick={(e) => {
+     
+      
+      <button className="btn btn-warning" onClick={(e) => {
         e.preventDefault()
         getWeather()
       }}>
@@ -135,6 +141,7 @@ const SinglePageComponent = () => {
         description={description}
         hum={hum}
         feels={feels}
+        icon= {icon}
       />
 
       <ForecastWeekly

@@ -17,10 +17,16 @@ const Weather = (props) => {
 
             {props.dataAvailable ?
 
-                (<div className="container">
+                (<div className="container ">
                     <div className="Card">
                         <h1 className="py-3">{props.cityname}</h1>
 
+                        <img width="70" height="70" src={`https://openweathermap.org/img/w/${props.icon}.png`} />
+
+                        <h4 className="py-3">
+                           {props.description.charAt(0).toUpperCase() +
+                                props.description.slice(1)}
+                        </h4>
                         <h1 className="py-2">Temperature: {props.temp_celsius}&deg;</h1>
 
                         <h1 className="py-2">Humidity: {props.hum}&#37;</h1>
@@ -29,10 +35,9 @@ const Weather = (props) => {
 
                         {maxminTemp(props.temp_min, props.temp_max)}
 
-                        <h4 className="py-3">
-                            Status: {props.description.charAt(0).toUpperCase() +
-                                props.description.slice(1)}
-                        </h4>
+
+
+
 
                     </div>
                 </div>)

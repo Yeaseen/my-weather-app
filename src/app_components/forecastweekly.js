@@ -11,7 +11,7 @@ const ForecastWeekly = (props) => {
                     <div>
                         <br></br>
 
-                        <h1>Weather forecast of every 3 hours for next 5 days</h1>
+                        <h1 className="text-light">Weather forecast of every 3 hours for next 5 days</h1>
                         <table className="table table-bordered table-dark">
                             <thead>
                                 <tr>
@@ -20,6 +20,7 @@ const ForecastWeekly = (props) => {
                                     <th scope="col">Temperature</th>
                                     <th scope="col">Humidity</th>
                                     <th scope="col">Feels like</th>
+                                    <th scope="col">Weather Icon</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Wind Speed (metre/sec)</th>
                                 </tr>
@@ -35,6 +36,7 @@ const ForecastWeekly = (props) => {
                                                 <td>{record.main.temp}&deg;</td>
                                                 <td>{record.main.humidity}&#37;</td>
                                                 <td>{record.main.feels_like}&deg;</td>
+                                                <td><img src={`https://openweathermap.org/img/w/${record.weather[0].icon}.png`} /></td>
                                                 <td>{record.weather[0].description.charAt(0).toUpperCase() +
                                                     record.weather[0].description.slice(1)}</td>
                                                 <td>{record.wind.speed}</td>
